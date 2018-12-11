@@ -25,7 +25,7 @@ class LoginFormContainer extends Component {
     }
 
     handleSubmit() {
-        fetch("http://localhost:7000/api/users/" + this.state.email + "/" + this.state.password)
+        fetch(`http://localhost:3000/api/users/${this.state.email}/${this.state.password}`).then(res => res.json())
             .then(
                 (result) => {
                     alert(result);

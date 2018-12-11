@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from "react-dom";
 import LoginFormContainer from "./LoginFormContainer";
-import {addUser} from "../../ajax/addUser";
 
 class SignUpFormContainer extends Component {
 
@@ -26,7 +25,15 @@ class SignUpFormContainer extends Component {
     }
 
     handleSubmit() {
-        addUser(this.state.email, this.state.password);
+        fetch("http://localhost:3000/").then(res => res.json())
+            .then(
+                (result) => {
+                    alert(result.msg);
+                },
+                (error) => {
+                    alert("Error while getting data");
+                }
+            );
         return true;
     }
 
