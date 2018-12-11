@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from "react-dom";
 import SignUpContainer from "./SignUpFormContainer";
+import {getUser} from "../../ajax/getUser";
 
 class LoginFormContainer extends Component {
     constructor(props) {
@@ -25,7 +26,12 @@ class LoginFormContainer extends Component {
     }
 
     handleSubmit() {
-        fetch(`http://localhost:3000/api/users/${this.state.email}/${this.state.password}`).then(res => res.json())
+        fetch(`http://localhost:3000/api/users/${this.state.email}/${this.state.password}`, {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            }
+        }).then(res => res.json())
             .then(
                 (result) => {
                     alert(result);

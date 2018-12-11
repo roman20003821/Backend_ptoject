@@ -28,7 +28,7 @@ class SignUpFormContainer extends Component {
         fetch("http://localhost:3000/").then(res => res.json())
             .then(
                 (result) => {
-                    alert(result.msg);
+                    alert(result);
                 },
                 (error) => {
                     alert("Error while getting data");

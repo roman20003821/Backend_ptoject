@@ -2,9 +2,13 @@ import $ from 'jquery';
 
 function getUser(email, password) {
     $.ajax({
-        url: `http://localhost:7000/api/users/` + email + "/" + password,
+        url: `http://localhost:3000/api/users/${email}/${password}`,
         type: 'GET',
         dataType: 'json',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+        },
         success: function (result) {
             alert(result);
         },
